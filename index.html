@@ -1,0 +1,109 @@
+<html>
+	<head>
+		<title>Drag & Drop</title>
+		<link rel="stylesheet" href="https://johnny.github.io/jquery-sortable/css/application.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+		<script type="text/javascript" src="https://johnny.github.io/jquery-sortable/js/jquery-sortable.js"></script>
+		<style>
+		  .first,.second,.third{float:left; width: 33.33%;}
+		  ol.simple_with_animation.vertical {
+			    min-height: 200px;
+			}
+			.row{margin: 0;}
+			.main_container ol.simple_with_animation.vertical li{
+			    width: 200px;
+			    float: left;
+			}
+	  	</style>
+    	<script>
+		  $(function() {
+			  var adjustment;
+
+			  $("ol.simple_with_animation").sortable({
+			    group: 'simple_with_animation',
+			    pullPlaceholder: false,
+			    // animation on drop
+			    onDrop: function  ($item, container, _super) {
+			    	console.log($item);
+			      var $clonedItem = $('<li/>').css({height: 0});
+			      $item.before($clonedItem);
+			      $clonedItem.animate({'height': $item.height()});
+
+			      $item.animate($clonedItem.position(), function  () {
+			        $clonedItem.detach();
+			        _super($item, container);
+			      });
+			    },
+
+			    // set $item relative to cursor position
+			    onDragStart: function ($item, container, _super) {
+			      var offset = $item.offset(),
+			          pointer = container.rootGroup.pointer;
+
+			      adjustment = {
+			        left: pointer.left - offset.left,
+			        top: pointer.top - offset.top
+			      };
+
+			      _super($item, container);
+			    },
+			    onDrag: function ($item, position) {
+			      $item.css({
+			        left: position.left - adjustment.left,
+			        top: position.top - adjustment.top
+			      });
+			    }
+			  });
+		  });
+	  	</script>
+	</head>
+	<body>
+		<div class="row">
+			<div class="first">
+				<ol class="simple_with_animation vertical">
+	                
+	            </ol>
+			</div>
+			<div class="second">
+				<ol class="simple_with_animation vertical">
+	                
+	            </ol>
+			</div>
+			<div class="third">
+				<ol class="simple_with_animation vertical">
+	                
+	            </ol>
+			</div>
+		</div>
+		<div class="row main_container">
+			<ol class="simple_with_animation vertical">
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+                <li>Item 4</li>
+                <li>Item 5</li>
+                <li>Item 6</li>
+                <li>Item 7</li>
+                <li>Item 8</li>
+                <li>Item 9</li>
+                <li>Item 10</li>
+                <li>Item 11</li>
+                <li>Item 12</li>
+                <li>Item 13</li>
+                <li>Item 14</li>
+                <li>Item 15</li>
+                <li>Item 16</li>
+                <li>Item 17</li>
+                <li>Item 18</li>
+                <li>Item 19</li>
+                <li>Item 20</li>
+                <li>Item 21</li>
+                <li>Item 22</li>
+                <li>Item 23</li>
+                <li>Item 24</li>
+                <li>Item 25</li>
+              </ol>
+		</div>
+		
+	</body>
+</html>
