@@ -1,109 +1,388 @@
+<!doctype>
 <html>
 	<head>
 		<title>Drag & Drop</title>
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.12.0/themes/base/jquery-ui.css">
 		<link rel="stylesheet" href="https://johnny.github.io/jquery-sortable/css/application.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-		<script type="text/javascript" src="https://johnny.github.io/jquery-sortable/js/jquery-sortable.js"></script>
+		<link rel="stylesheet" href="http://getbootstrap.com/dist/css/bootstrap.min.css">
+		<script type="text/javascript" src="js/libs/jquery/jquery.js"></script>
+		<script type="text/javascript" src="js/libs/jquery-ui/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://getbootstrap.com/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="jquery-sortable.js"></script>
 		<style>
-		  .first,.second,.third{float:left; width: 33.33%;}
-		  ol.simple_with_animation.vertical {
-			    min-height: 200px;
+			.form-group {
+			    margin: 1px 15px 0px 15px;
 			}
-			.row{margin: 0;}
-			.main_container ol.simple_with_animation.vertical li{
-			    width: 200px;
+			input[type="text"]{height: 30px;}
+			.nav-tabs{border: none;}
+			.nav-tabs li{padding: 5px;}
+			.nav-tabs li button{padding: 5px;}
+			.remove-btn{
+				background: #3499b4;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+			}
+			.copy-btn{
+				background: #3499b4;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+			}
+			.print-btn{
+				background: #7D34BA;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+			}
+			.mail-btn{
+				background: #7D34BA;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+			}
+			.block1-btn, .nav-tabs>li.active>a.block1-btn, .nav-tabs>li>a.block1-btn{
+				background: #3499b4;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+				padding: 5px;
+			}
+			.block2-btn, .nav-tabs>li.active>a.block2-btn, .nav-tabs>li>a.block2-btn{
+				background: #7D34BA;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+				padding: 5px;
+			}
+			.block3-btn, .nav-tabs>li.active>a.block3-btn, .nav-tabs>li>a.block3-btn{
+				background: #62ad48;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+				padding: 5px;
+			}
+			.block4-btn, .nav-tabs>li.active>a.block4-btn, .nav-tabs>li>a.block4-btn{
+				background: #dd5d32;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+				padding: 5px;
+			}
+			.block5-btn, .nav-tabs>li.active>a.block5-btn, .nav-tabs>li>a.block5-btn{
+				background: #2EA5A5;
+				color: #fff;
+				border: none;
+				border-radius: 0px;
+				padding: 5px;
+			}
+			.batch {
 			    float: left;
+			    width: 12.5%;
+			    padding: 5px;
+			}
+			.batch h3 {
+			    font-size: .65em;
+			    text-align: center;
+			    border: 1px solid #999999;
+			    margin: 0;
+			    background: #428bca;
+			    font-weight: bold;
+			    color: #fff;
+			}
+			ol.simple_with_animation.vertical {
+			    min-height: 280px;
+			    background: #d9edf7;
+			}
+			.batch h4 {
+			    font-size: .65em;
+			    text-align: center;
+			    border: 1px solid #999999;
+			    margin: 0;
+			    background: #428bca;
+			    font-weight: bold;
+			    color: #fff;
+			}
+			.row {
+			    margin: 20px 15px;
+			}
+			.main_container ol.simple_with_animation.vertical{
+				min-height: 400px;
+			}
+			.main_container ol.simple_with_animation.vertical li {
+			    width: 16.48%;
+			    float: left;
+			}
+			ol.vertical{margin: 0px;}
+			ol.vertical li {
+			    padding: 1px;
+			    font-size: .67em;
+			    margin: 1px;
 			}
 	  	</style>
     	<script>
 		  $(function() {
 			  var adjustment;
+			  $.ajax({			
+	    			url: 'testdata/test.json',
+	    			type: 'POST',
+	    			success: function(response, status, options){
+	    				var students = response.students,
+	    					batches = response.plug_skillgroup,
+	    					schedule = response.schedule;
+	    				
+	    				var batchList = "";
+	    				var sList = "";
+	    				$.each(batches, function(key, val){
+	    					$.each(schedule, function(k,v){
+	    						if(v.batch_id == val.id){
+	    							$.each(students, function(sk, sv){
+	    								if(sv.id == v.students){
+	    									sList	+= '<li data-id="'+sv.id+'">'+sv.name+'</li>';
+	    									return false;
+	    								}
+	    							});
+	    							
+	    						}	
+	    					});
+	    					
+	    					batchList += '<div class="batch"><h3>'+val.skillname+'</h3><ol class="simple_with_animation vertical">'+sList+'</ol><h4 data-remaining="20">0 ingedeeld / van 20</h4></div>';
+	    					sList = "";
+	    				});
+	    				$("#block1 .row").html(batchList)
+	    				var studentList = "";
+	    				$.each(students, function(key, val){
+	    					var check = true;
+	    					if(schedule.length){
+	    						$.each(schedule, function(k, v){
+	    							if(v.students == val.id){
+		    							check = false;		
+		    						}
+		    					});
+	    						if(check){
+	    							studentList	+= '<li data-id="'+val.id+'">'+val.name+'</li>';
+	    						}
+	    					} else {
+	    						studentList	+= '<li data-id="'+val.id+'">'+val.name+'</li>';
+	    					}
+	    				});
+	    				$(".main_container ol").empty().append(studentList);
+	    				
+	    				$("ol.simple_with_animation").sortable({
+	    				    group: 'simple_with_animation',
+	    				    pullPlaceholder: false,
+	    				    // animation on drop
+	    				    isValidTarget: function  ($item, container) {
+	    				    	if($item.parents("div.batch").length){
+	    				    		var remain = $item.parent().find("li").length - 1;
+	    				    		$item.parents("div.batch").find("h4").html(remain+" ingedeeld / van 20");	
+	    				    	}
+	    				        if($(container.el[0]).parent().find("li").length < 20){
+	    				        	return true;
+	    				        } else {
+	    				        	return $item.parent("ol")[0] == container.el[0];
+	    				        }
+	    				    },
+	    				    onDrop: function  ($item, container, _super) {
+	    				    	var remain = $item.parent().find("li").length;
+	    			    		$item.parents("div.batch").find("h4").html(remain+" ingedeeld / van 20");
+	    			    		var $clonedItem = $('<li/>').css({height: 0});
+	    						$item.before($clonedItem);
+	    						$clonedItem.animate({'height': $item.height()});
+	    						
+	    						$item.animate($clonedItem.position(), function  () {
+	    						  $clonedItem.detach();
+	    						  _super($item, container);
+	    						});
+	    				    },
 
-			  $("ol.simple_with_animation").sortable({
-			    group: 'simple_with_animation',
-			    pullPlaceholder: false,
-			    // animation on drop
-			    onDrop: function  ($item, container, _super) {
-			    	console.log($item);
-			      var $clonedItem = $('<li/>').css({height: 0});
-			      $item.before($clonedItem);
-			      $clonedItem.animate({'height': $item.height()});
+	    				    // set $item relative to cursor position
+	    				    onDragStart: function ($item, container, _super) {
+	    				      var offset = $item.offset(),
+	    				          pointer = container.rootGroup.pointer;
 
-			      $item.animate($clonedItem.position(), function  () {
-			        $clonedItem.detach();
-			        _super($item, container);
-			      });
-			    },
+	    				      adjustment = {
+	    				        left: pointer.left - offset.left,
+	    				        top: pointer.top - offset.top
+	    				      };
 
-			    // set $item relative to cursor position
-			    onDragStart: function ($item, container, _super) {
-			      var offset = $item.offset(),
-			          pointer = container.rootGroup.pointer;
+	    				      _super($item, container);
+	    				    },
+	    				    onDrag: function ($item, position) {
+	    				      $item.css({
+	    				        left: position.left - adjustment.left,
+	    				        top: position.top - adjustment.top
+	    				      });
+	    				    }
+	    				  });
+	    			},
+	    			error: function(err){
+	    				aler(err);
+	    			}
+	    		});
+			  $('#block-tabs a').click(function (e) {
+				  //e.preventDefault();
+				  var tabId = $(this).attr("href");
+				  $.ajax({			
+	    			url: 'testdata/test.json',
+	    			type: 'POST',
+	    			success: function(response, status, options){
+	    				var students = response.students,
+	    					batches = response.plug_skillgroup,
+	    					schedule = response.schedule;
+	    				
+	    				var batchList = "",
+	    					sList = "";;
+	    				$.each(batches, function(key, val){
+	    					$.each(schedule, function(k,v){
+	    						if(v.batch_id == val.id){
+	    							$.each(students, function(sk, sv){
+	    								if(sv.id == v.students){
+	    									sList	+= '<li data-id="'+sv.id+'">'+sv.name+'</li>';
+	    									return false;
+	    								}
+	    							});
+	    							
+	    						}	
+	    					});
+	    					
+	    					batchList += '<div class="batch"><h3>'+val.skillname+'</h3><ol class="simple_with_animation vertical">'+sList+'</ol><h4 data-remaining="20">0 ingedeeld / van 20</h4></div>';
+	    					sList = "";
+	    				});
+	    				$(tabId+" .row").html(batchList)
+	    				var studentList = "";
+	    				$.each(students, function(key, val){
+	    					var check = true;
+	    					if(schedule.length){
+	    						$.each(schedule, function(k, v){
+	    							if(v.students == val.id){
+		    							check = false;		
+		    						}
+		    					});
+	    						if(check){
+	    							studentList	+= '<li data-id="'+val.id+'">'+val.name+'</li>';
+	    						}
+	    					} else {
+	    						studentList	+= '<li data-id="'+val.id+'">'+val.name+'</li>';
+	    					}
+	    				});
+	    				$(".main_container ol").empty().append(studentList);
+	    				$("ol.simple_with_animation").sortable("destroy");
+	    				$("ol.simple_with_animation").sortable({
+	    				    group: 'simple_with_animation',
+	    				    pullPlaceholder: false,
+	    				    // animation on drop
+	    				    isValidTarget: function  ($item, container) {
+	    				    	if($item.parents("div.batch").length){
+	    				    		var remain = $item.parent().find("li").length - 1;
+	    				    		$item.parents("div.batch").find("h4").html(remain+" ingedeeld / van 20");	
+	    				    	}
+	    				        if($(container.el[0]).parent().find("li").length < 20){
+	    				        	return true;
+	    				        } else {
+	    				        	return $item.parent("ol")[0] == container.el[0];
+	    				        }
+	    				    },
+	    				    onDrop: function  ($item, container, _super) {
+	    				    	var remain = $item.parent().find("li").length;
+	    			    		$item.parents("div.batch").find("h4").html(remain+" ingedeeld / van 20");
+	    			    		var $clonedItem = $('<li/>').css({height: 0});
+	    						$item.before($clonedItem);
+	    						$clonedItem.animate({'height': $item.height()});
+	    						
+	    						$item.animate($clonedItem.position(), function  () {
+	    						  $clonedItem.detach();
+	    						  _super($item, container);
+	    						});
+	    				    },
 
-			      adjustment = {
-			        left: pointer.left - offset.left,
-			        top: pointer.top - offset.top
-			      };
+	    				    // set $item relative to cursor position
+	    				    onDragStart: function ($item, container, _super) {
+	    				      var offset = $item.offset(),
+	    				          pointer = container.rootGroup.pointer;
 
-			      _super($item, container);
-			    },
-			    onDrag: function ($item, position) {
-			      $item.css({
-			        left: position.left - adjustment.left,
-			        top: position.top - adjustment.top
-			      });
-			    }
-			  });
+	    				      adjustment = {
+	    				        left: pointer.left - offset.left,
+	    				        top: pointer.top - offset.top
+	    				      };
+
+	    				      _super($item, container);
+	    				    },
+	    				    onDrag: function ($item, position) {
+	    				      $item.css({
+	    				        left: position.left - adjustment.left,
+	    				        top: position.top - adjustment.top
+	    				      });
+	    				    }
+	    				  });
+	    				  
+	    			},
+	    			error: function(err){
+	    				aler(err);
+	    			}
+	    		});
+				  
+				  $(this).tab('show')
+				})
+			  
+			  
 		  });
 	  	</script>
 	</head>
 	<body>
-		<div class="row">
-			<div class="first">
-				<ol class="simple_with_animation vertical">
-	                
-	            </ol>
+		<div class="container">
+ 			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" id="block-tabs" role="tablist">
+			    <li>
+			    	<div class="form-group">
+			    		<input type="text"" class="form-control" class="datepicker" id="date" />
+			    	</div>	
+			    </li>
+			    <li>
+			    	<div class="form-group">
+			    		<input type="text"" class="form-control" class="datepicker" id="dateTo" />
+			    	</div>
+			    </li>
+			    <li role="presentation" class="active"><a href="#block1" class="block1-btn" aria-controls="block1" role="tab" data-toggle="tab">Block 1</a></li>
+			    <li role="presentation"><a href="#block2" class="block2-btn" aria-controls="block2" role="tab" data-toggle="tab">Block 2</a></li>
+			    <li role="presentation"><a href="#block3" class="block3-btn" aria-controls="block3" role="tab" data-toggle="tab">Block 3</a></li>
+			    <li role="presentation"><a href="#block4" class="block4-btn" aria-controls="block4" role="tab" data-toggle="tab">Block 4</a></li>
+			    <li role="presentation"><a href="#block5" class="block5-btn" aria-controls="block5" role="tab" data-toggle="tab">Block 5</a></li>
+			    <li><button class="remove-btn">Remove Block</button></li>
+			    <li><button class="copy-btn">Copy Block</button></li>
+			    <li><button class="print-btn">Print Grid</button></li>
+			    <li><button class="mail-btn">Mail</button></li>
+			</ul>
+
+  			<!-- Tab panes -->
+  			<div class="tab-content">
+    			<div role="tabpanel" class="tab-pane active" id="block1">
+    				<div class="row"></div>
+				</div>
+			    <div role="tabpanel" class="tab-pane" id="block2">
+			    	<div class="row"></div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="block3">
+			    	<div class="row"></div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="block4">
+			    	<div class="row"></div>
+			    </div>
+			    <div role="tabpanel" class="tab-pane" id="block5">
+			    	<div class="row"></div>
+			    </div>
 			</div>
-			<div class="second">
-				<ol class="simple_with_animation vertical">
-	                
-	            </ol>
-			</div>
-			<div class="third">
-				<ol class="simple_with_animation vertical">
-	                
-	            </ol>
+			<div class="row main_container">
+				<ol class="simple_with_animation vertical"></ol>
 			</div>
 		</div>
-		<div class="row main_container">
-			<ol class="simple_with_animation vertical">
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li>
-                <li>Item 4</li>
-                <li>Item 5</li>
-                <li>Item 6</li>
-                <li>Item 7</li>
-                <li>Item 8</li>
-                <li>Item 9</li>
-                <li>Item 10</li>
-                <li>Item 11</li>
-                <li>Item 12</li>
-                <li>Item 13</li>
-                <li>Item 14</li>
-                <li>Item 15</li>
-                <li>Item 16</li>
-                <li>Item 17</li>
-                <li>Item 18</li>
-                <li>Item 19</li>
-                <li>Item 20</li>
-                <li>Item 21</li>
-                <li>Item 22</li>
-                <li>Item 23</li>
-                <li>Item 24</li>
-                <li>Item 25</li>
-              </ol>
-		</div>
-		
 	</body>
+	<script>
+	  $( function() {
+	    $( "#date" ).datepicker({
+	      changeMonth: true,
+	      changeYear: true
+	    });
+	  } );
+  </script>
 </html>
