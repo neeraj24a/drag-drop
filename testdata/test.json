@@ -1,0 +1,503 @@
+{  
+   "students":[  
+      {  
+         "id":"3",
+         "name":"Arragon, van,  Ezrah"
+      },
+      {  
+         "id":"14",
+         "name":"Besteman,  Jewely"
+      },
+      {  
+         "id":"17",
+         "name":"Boer, den,  Jonathan"
+      },
+      {  
+         "id":"41",
+         "name":"Eilander,  Ivar"
+      },
+      {  
+         "id":"42",
+         "name":"Engelen, van,  Frits"
+      },
+      {  
+         "id":"50",
+         "name":"Guyt,  Kaylee"
+      },
+      {  
+         "id":"60",
+         "name":"Hoven ten,  Danny"
+      },
+      {  
+         "id":"68",
+         "name":"Kemper,  Robin"
+      },
+      {  
+         "id":"73",
+         "name":"Koornstra,  Anne Durk"
+      },
+      {  
+         "id":"84",
+         "name":"Magendane,  Aron"
+      },
+      {  
+         "id":"89",
+         "name":"Molendijk,  Gert-Jan"
+      },
+      {  
+         "id":"98",
+         "name":"Ordelman,  Jeffrey"
+      },
+      {  
+         "id":"100",
+         "name":"Overvelde,  Eloy"
+      },
+      {  
+         "id":"502",
+         "name":"Oosterveen,  Wouter"
+      },
+      {  
+         "id":"106",
+         "name":"Plieger,  Paul"
+      },
+      {  
+         "id":"113",
+         "name":"Reumer,  Danny"
+      },
+      {  
+         "id":"114",
+         "name":"Roelofs,  Kai"
+      },
+      {  
+         "id":"152",
+         "name":"Zon, van,  Raoul"
+      },
+      {  
+         "id":"351",
+         "name":"Dalhuisen,  Rick"
+      },
+      {  
+         "id":"355",
+         "name":"Dekker,  Julie"
+      },
+      {  
+         "id":"356",
+         "name":"Lubbers,  Aaldert"
+      },
+      {  
+         "id":"362",
+         "name":"Kamp,  Jeremy"
+      },
+      {  
+         "id":"365",
+         "name":"Buurkes,  Christian"
+      },
+      {  
+         "id":"377",
+         "name":"Korzaan,  Raviq"
+      },
+      {  
+         "id":"389",
+         "name":"Haverkamp,  Jordi"
+      },
+      {  
+         "id":"409",
+         "name":"Nijmeijer,  Yu Yu"
+      },
+      {  
+         "id":"437",
+         "name":"Sipma,  Fee"
+      },
+      {  
+         "id":"446",
+         "name":"Rademaker,  Hamp"
+      },
+      {  
+         "id":"449",
+         "name":"Driel, van Dustin"
+      },
+      {  
+         "id":"450",
+         "name":"Rensen,  Jaimy"
+      },
+      {  
+         "id":"458",
+         "name":"Reiziger,  Quincy"
+      },
+      {  
+         "id":"466",
+         "name":"Klumper,  Sebastiaan"
+      },
+      {  
+         "id":"476",
+         "name":"Moorst, van Kevin"
+      },
+      {  
+         "id":"483",
+         "name":"Boskamp,  Nick"
+      },
+      {  
+         "id":"496",
+         "name":"Weenink,  Ismael"
+      },
+      {  
+         "id":"497",
+         "name":"van Ooijen,  Cas Sandip"
+      },
+      {  
+         "id":"498",
+         "name":"Fritz,  Calvin"
+      },
+      {  
+         "id":"501",
+         "name":"Hendriks,  Noah Jimmi"
+      },
+      {  
+         "id":"504",
+         "name":"Werven, van Colin"
+      },
+      {  
+         "id":"505",
+         "name":"Overink,  Arjan"
+      },
+      {  
+         "id":"507",
+         "name":"Verseveld, van Ben"
+      },
+      {  
+         "id":"515",
+         "name":"Kool,  Laurens Christian"
+      },
+      {  
+         "id":"516",
+         "name":"Molisho,  Tatiana"
+      },
+      {  
+         "id":"518",
+         "name":"Zeeman,  Teunette"
+      },
+      {  
+         "id":"520",
+         "name":"Zoelen, van Raynaldo"
+      },
+      {  
+         "id":"525",
+         "name":"Veldwijk,  Sabine"
+      },
+      {  
+         "id":"526",
+         "name":"Joosten,  Alexander"
+      },
+      {  
+         "id":"527",
+         "name":"Oude Spraakte,  Vanessa"
+      },
+      {  
+         "id":"529",
+         "name":"Bouwhuis,  Richard Felix"
+      },
+      {  
+         "id":"531",
+         "name":"Meiling, Sandrie Beer Ronald"
+      },
+      {  
+         "id":"534",
+         "name":"Oostenveld,  Sander"
+      },
+      {  
+         "id":"536",
+         "name":"Burgers,  Floris"
+      },
+      {  
+         "id":"537",
+         "name":"Duric,  Cindy"
+      },
+      {  
+         "id":"538",
+         "name":"Maren, van Quinton"
+      },
+      {  
+         "id":"539",
+         "name":"Vinke,  Lucas"
+      },
+      {  
+         "id":"540",
+         "name":"Ketellapper,  Lisette"
+      },
+      {  
+         "id":"541",
+         "name":"Kuijpers,  Melissa"
+      },
+      {  
+         "id":"543",
+         "name":"Gerrits,  Coen"
+      },
+      {  
+         "id":"545",
+         "name":"Raat,  Enzo"
+      },
+      {  
+         "id":"546",
+         "name":"Bes,  Alex"
+      },
+      {  
+         "id":"547",
+         "name":"van den Bor,  Carlo"
+      },
+      {  
+         "id":"548",
+         "name":"Veldhuis,  Ilaysa Selesta shayenna"
+      },
+      {  
+         "id":"549",
+         "name":"Beijsterveldt, van Robin"
+      },
+      {  
+         "id":"550",
+         "name":"Tekinerdogan,  Nida"
+      },
+      {  
+         "id":"551",
+         "name":"Velthuis,  Kellody"
+      },
+      {  
+         "id":"552",
+         "name":"Moolenaar,  Martijn"
+      },
+      {  
+         "id":"553",
+         "name":"Kaminsky,  Wilco Roelof Klaas"
+      },
+      {  
+         "id":"554",
+         "name":"Schut,  Romano Roberto"
+      },
+      {  
+         "id":"555",
+         "name":"Vroemisse,  Thomas Gerardus Marcellinus"
+      },
+      {  
+         "id":"556",
+         "name":"Jonker,  Ricardo"
+      }
+   ],
+   "plug_skillgroup":[  
+      {  
+         "id":"1",
+         "skillname":"Entree"
+      },
+      {  
+         "id":"3",
+         "skillname":"Bosr"
+      },
+      {  
+         "id":"4",
+         "skillname":"Cons"
+      },
+      {  
+         "id":"5",
+         "skillname":"Hout"
+      },
+      {  
+         "id":"8",
+         "skillname":"Lassen"
+      },
+      {  
+         "id":"9",
+         "skillname":"DagBes"
+      },
+      {  
+         "id":"10",
+         "skillname":"Metaal"
+      },
+      {  
+         "id":"11",
+         "skillname":"Muziek"
+      },
+      {  
+         "id":"12",
+         "skillname":"Religie"
+      },
+      {  
+         "id":"13",
+         "skillname":"Sport"
+      },
+      {  
+         "id":"14",
+         "skillname":"SportT"
+      },
+      {  
+         "id":"15",
+         "skillname":"Stage"
+      },
+      {  
+         "id":"16",
+         "skillname":"Sociale Hygiene"
+      },
+      {  
+         "id":"17",
+         "skillname":"Techb"
+      },
+      {  
+         "id":"18",
+         "skillname":"VCA"
+      },
+      {  
+         "id":"19",
+         "skillname":"Theorie hout"
+      },
+      {  
+         "id":"21",
+         "skillname":"ZeeW"
+      },
+      {  
+         "id":"22",
+         "skillname":"ICT"
+      },
+      {  
+         "id":"23",
+         "skillname":"Geschiedenis"
+      },
+      {  
+         "id":"24",
+         "skillname":"HeftPr"
+      },
+      {  
+         "id":"25",
+         "skillname":"lunch"
+      },
+      {  
+         "id":"31",
+         "skillname":"RT"
+      },
+      {  
+         "id":"32",
+         "skillname":"crea"
+      },
+      {  
+         "id":"20",
+         "skillname":"Lijn 5"
+      },
+      {  
+         "id":"33",
+         "skillname":"SHM"
+      },
+      {  
+         "id":"34",
+         "skillname":"leerlingen raad"
+      },
+      {  
+         "id":"35",
+         "skillname":"zorg en dienstv"
+      },
+      {  
+         "id":"36",
+         "skillname":"verkoop"
+      },
+      {  
+         "id":"37",
+         "skillname":"IVIO 1"
+      },
+      {  
+         "id":"39",
+         "skillname":"IVIO 2"
+      }
+   ],
+   "block":{  
+      "name":"Block",
+      "id":"1",
+      "time":"08:05:00 to 10:05:00"
+   },
+   "schedule":[  
+      {  
+         "batch_id":"36",
+         "note":null,
+         "students":"3"
+      },
+      {  
+         "batch_id":"37",
+         "note":null,
+         "students":"17"
+      },
+      {  
+         "batch_id":"39",
+         "note":null,
+         "students":"42"
+      },
+      {  
+         "batch_id":"36",
+         "note":null,
+         "students":"100"
+      },
+      {  
+         "batch_id":"37",
+         "note":null,
+         "students":"389"
+      },
+      {  
+         "batch_id":"39",
+         "note":null,
+         "students":"497"
+      },
+      {  
+         "batch_id":"37",
+         "note":null,
+         "students":"518"
+      },
+      {  
+         "batch_id":"39",
+         "note":null,
+         "students":"114"
+      },
+      {  
+         "batch_id":"36",
+         "note":null,
+         "students":"446"
+      },
+      {  
+         "batch_id":"37",
+         "note":null,
+         "students":"409"
+      },
+      {  
+         "batch_id":"39",
+         "note":null,
+         "students":"504"
+      },
+      {  
+         "batch_id":"36",
+         "note":null,
+         "students":"501"
+      },
+      {  
+         "batch_id":"31",
+         "note":null,
+         "students":"548"
+      },
+      {  
+         "batch_id":"24",
+         "note":null,
+         "students":"553"
+      },
+      {  
+         "batch_id":"23",
+         "note":null,
+         "students":"531"
+      },
+      {  
+         "batch_id":"25",
+         "note":null,
+         "students":"555"
+      },
+      {  
+         "batch_id":"36",
+         "note":null,
+         "students":"502"
+      },
+      {  
+         "batch_id":"37",
+         "note":null,
+         "students":"536"
+      }
+   ]
+}
